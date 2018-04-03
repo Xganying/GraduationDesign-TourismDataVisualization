@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+
+
+   <style type="text/css">
+
+  /* #container{
+     display: flex;
+   }*/
+    #detail{
+        left: 200px;
+        padding-top: -150px;
+        width: 1000px;
+        height: 600px;
+        border: 1px solid red;
+    }
+    #detail_0{
+        position: relative;
+        float: left;
+        left: 50px;
+        top: -110px;
+        width: 700px;
+        height: 500px;
+        border: 1px solid green;
+    }
+    #detail_1{
+        position: relative;
+        float: right;
+        right: 150px;
+        top: -110px;
+        width: 650px;
+        height: 500px;
+        margin-right: 20px;
+        border: 1px solid blue;
+    }
+    
+
+
+   </style>
+
+   <script type="text/javascript" src="./js/echarts.js"></script>
+   <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+   <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+   <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+   <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+   <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+   <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+   <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+
+
+
+
+   <body>
+        <!-- <div id="container"> -->
+             <div id="detail"></div>
+            <div id="detail_0"></div>
+            <div id="detail_1"></div>
+        <!-- </div> -->
+      
+
+   </body>
+
+        <!-- // Nested Ring -->
+       <script type="text/javascript">
+            var dom = document.getElementById("detail");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            // app.title = '嵌套环形图';
+
+            option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    y:'middle',
+                    data:['2008','2009','2010','2011','2012','2013','2014','2015','2016','2017']
+                },
+                series: [
+                    {
+                        name:'国家数据',
+                        type:'pie',
+                        selectedMode: 'single',
+                        radius: [0, '30%'],
+                        label: {
+                            normal: {
+                                position: 'inner'
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data:[
+                            {value:1335, name:'国内游客'},
+                            // {value:679, name:'国外游客'},
+                            // {value:1548, name:'港澳台游客',selected:true}
+                        ]
+                    },
+                    {
+                        name:'国家数据',
+                        type:'pie',
+                        radius: ['40%', '55%'],
+                        label: {
+                            normal: {
+                                formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                                backgroundColor: '#eee',
+                                borderColor: '#aaa',
+                                borderWidth: 1,
+                                borderRadius: 4,
+                                // shadowBlur:3,
+                                // shadowOffsetX: 2,
+                                // shadowOffsetY: 2,
+                                // shadowColor: '#999',
+                                // padding: [0, 7],
+                                rich: {
+                                    a: {
+                                        color: '#999',
+                                        lineHeight: 22,
+                                        align: 'center'
+                                    },
+                                    // abg: {
+                                    //     backgroundColor: '#333',
+                                    //     width: '100%',
+                                    //     align: 'right',
+                                    //     height: 22,
+                                    //     borderRadius: [4, 4, 0, 0]
+                                    // },
+                                    hr: {
+                                        borderColor: '#aaa',
+                                        width: '100%',
+                                        borderWidth: 0.5,
+                                        height: 0
+                                    },
+                                    b: {
+                                        fontSize: 16,
+                                        lineHeight: 33
+                                    },
+                                    per: {
+                                        color: '#eee',
+                                        backgroundColor: '#334455',
+                                        padding: [2, 4],
+                                        borderRadius: 2
+                                    }
+                                }
+                            }
+                        },
+                        data:[
+                            {value:335, name:'2008'},
+                            {value:310, name:'2009'},
+                            {value:234, name:'2010'},
+                            {value:135, name:'2011'},
+                            {value:1048, name:'2012'},
+                            {value:251, name:'2013'},
+                            {value:147, name:'2014'},
+                            {value:102, name:'2015'},
+                            {value:102, name:'2016'},
+                            {value:102, name:'2017'}
+
+                        ]
+                    }
+                ]
+            };;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+
+        <!-- 左下 -->
+        <script type="text/javascript">
+            var dom = document.getElementById("detail_0");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            app.title = '环形图';
+
+            option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    y:'middle',
+                    data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+                },
+                series: [
+                    {
+                        name:'国家数据',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data:[
+                            {value:335, name:'直接访问'},
+                            {value:310, name:'邮件营销'},
+                            {value:234, name:'联盟广告'},
+                            {value:135, name:'视频广告'},
+                            {value:1548, name:'搜索引擎'}
+                        ]
+                    }
+                ]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+
+
+       <!--右下边详情图 -->
+       <script type="text/javascript">
+            var dom = document.getElementById("detail_1");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                title : {
+                    // text: '南丁格尔玫瑰图',
+                    // subtext: '纯属虚构',
+                    // x:'center'
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                // legend: {
+                //     x : 'center',
+                //     y : 'top',
+                //     data:['rose1','rose2','rose3','rose4','rose5','rose6','rose7','rose8']
+                // },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {
+                            show: true,
+                            type: ['pie', 'funnel']
+                        },
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'半径模式',
+                        type:'pie',
+                        radius : [20, 110],
+                        center : ['25%', '50%'],
+                        roseType : 'radius',
+                        label: {
+                            normal: {
+                                show: false
+                            },
+                            emphasis: {
+                                show: true
+                            }
+                        },
+                        lableLine: {
+                            normal: {
+                                show: false
+                            },
+                            emphasis: {
+                                show: true
+                            }
+                        },
+                        data:[
+                            {value:10, name:'rose1'},
+                            {value:5, name:'rose2'},
+                            {value:15, name:'rose3'},
+                            {value:25, name:'rose4'},
+                            {value:20, name:'rose5'},
+                            {value:35, name:'rose6'},
+                            {value:30, name:'rose7'},
+                            {value:40, name:'rose8'}
+                        ]
+                    },
+                    {
+                        name:'面积模式',
+                        type:'pie',
+                        radius : [30, 110],
+                        center : ['75%', '50%'],
+                        roseType : 'area',
+                        data:[
+                            {value:10, name:'rose1'},
+                            {value:5, name:'rose2'},
+                            {value:15, name:'rose3'},
+                            {value:25, name:'rose4'},
+                            {value:20, name:'rose5'},
+                            {value:35, name:'rose6'},
+                            {value:30, name:'rose7'},
+                            {value:40, name:'rose8'}
+                        ]
+                    }
+                ]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+
+
+       
+ 
+</html>
