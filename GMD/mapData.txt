@@ -1,0 +1,215 @@
+Country code,Country name,Population density 2010
+af,Afghanistan,53
+al,Albania,117
+dz,Algeria,15
+as,American Samoa,342
+ad,Andorra,181
+ao,Angola,15
+ai,Antigua and Barbuda,202
+ar,Argentina,15
+am,Armenia,109
+aw,Aruba,597
+au,Australia,3
+at,Austria,102
+az,Azerbaijan,110
+bs,Bahamas, The,34
+bh,Bahrain,1660
+bd,Bangladesh,1142
+bb,Barbados,636
+by,Belarus,47
+be,Belgium,359
+bz,Belize,15
+bj,Benin,80
+bm,Bermuda,1292
+bt,Bhutan,19
+bo,Bolivia,9
+ba,Bosnia and Herzegovina,73
+bw,Botswana,4
+br,Brazil,23
+bn,Brunei Darussalam,76
+bg,Bulgaria,69
+bf,Burkina Faso,60
+bi,Burundi,326
+kh,Cambodia,80
+cm,Cameroon,41
+ca,Canada,4
+cv,Cape Verde,123
+ky,Cayman Islands,234
+cf,Central African Republic,7
+td,Chad,9
+cl,Chile,23
+cn,China,143
+co,Colombia,42
+km,Comoros,395
+cd,Congo, Dem. Rep.,29
+cg,Congo, Rep.,12
+cr,Costa Rica,91
+ci,Cote d'Ivoire,62
+hr,Croatia,79
+cu,Cuba,106
+cw,Curacao,321
+cy,Cyprus,119
+cz,Czech Republic,136
+dk,Denmark,131
+dj,Djibouti,38
+dm,Dominica,90
+do,Dominican Republic,205
+ec,Ecuador,58
+eg,Egypt, Arab Rep.,81
+sv,El Salvador,299
+gq,Equatorial Guinea,25
+er,Eritrea,52
+ee,Estonia,32
+et,Ethiopia,83
+fo,Faeroe Islands,35
+fj,Fiji,47
+fi,Finland,18
+fr,France,118
+pf,French Polynesia,74
+ga,Gabon,6
+gm,Gambia, The,173
+ge,Georgia,78
+de,Germany,234
+gh,Ghana,107
+gr,Greece,88
+gl,Greenland,0
+gd,Grenada,307
+gu,Guam,333
+gt,Guatemala,134
+gn,Guinea,41
+gw,Guinea-Bissau,54
+gy,Guyana,4
+ht,Haiti,363
+hn,Honduras,68
+hk,Hong Kong SAR, China,6783
+hu,Hungary,112
+is,Iceland,3
+in,India,394
+id,Indonesia,132
+ir,Iran, Islamic Rep.,45
+iq,Iraq,73
+ie,Ireland,65
+im,Isle of Man,145
+il,Israel,352
+it,Italy,206
+jm,Jamaica,250
+jp,Japan,350
+jo,Jordan,69
+kz,Kazakhstan,6
+ke,Kenya,71
+ki,Kiribati,123
+kp,Korea, Dem. Rep.,202
+kr,Korea, Rep.,504
+xk,Kosovo,167
+kw,Kuwait,154
+kg,Kyrgyz Republic,28
+la,Lao PDR,27
+lv,Latvia,36
+lb,Lebanon,413
+ls,Lesotho,72
+lr,Liberia,41
+ly,Libya,4
+li,Liechtenstein,225
+lt,Lithuania,53
+lu,Luxembourg,195
+mo,Macao SAR, China,19416
+mk,Macedonia, FYR,82
+mg,Madagascar,36
+mw,Malawi,158
+my,Malaysia,86
+mv,Maldives,1053
+ml,Mali,13
+mt,Malta,1291
+mh,Marshall Islands,300
+mr,Mauritania,3
+mu,Mauritius,631
+yt,Mayotte,552
+mx,Mexico,58
+fm,Micronesia, Fed. Sts.,159
+md,Moldova,124
+mc,Monaco,17704
+mn,Mongolia,2
+me,Montenegro,47
+ma,Morocco,72
+mz,Mozambique,30
+mm,Myanmar,73
+na,Namibia,3
+np,Nepal,209
+nl,Netherlands,492
+nc,New Caledonia,14
+nz,New Zealand,17
+ni,Nicaragua,48
+ne,Niger,12
+ng,Nigeria,174
+mp,Northern Mariana Islands,132
+no,Norway,16
+om,Oman,9
+pk,Pakistan,225
+pw,Palau,45
+pa,Panama,47
+pg,Papua New Guinea,15
+py,Paraguay,16
+pe,Peru,23
+ph,Philippines,313
+pl,Poland,126
+pt,Portugal,116
+pr,Puerto Rico,449
+wa,Qatar,152
+ro,Romania,93
+ru,Russian Federation,9
+rw,Rwanda,431
+ws,Samoa,65
+sm,San Marino,526
+st,Sao Tome and Principe,172
+sa,Saudi Arabia,14
+sn,Senegal,65
+rs,Serbia,83
+sc,Seychelles,188
+sl,Sierra Leone,82
+sg,Singapore,7252
+sk,Slovak Republic,113
+si,Slovenia,102
+sb,Solomon Islands,19
+so,Somalia,15
+za,South Africa,41
+ss,South Sudan,
+es,Spain,92
+lk,Sri Lanka,333
+kn,St. Kitts and Nevis,202
+lc,St. Lucia,285
+mf,St. Martin (French part),556
+vc,St. Vincent and the Grenadines,280
+sd,Sudan,18
+sr,Suriname,3
+sz,Swaziland,69
+se,Sweden,23
+ch,Switzerland,196
+sy,Syrian Arab Republic,111
+tj,Tajikistan,49
+tz,Tanzania,51
+th,Thailand,135
+tp,Timor-Leste,76
+tg,Togo,111
+to,Tonga,145
+tt,Trinidad and Tobago,261
+tn,Tunisia,68
+tr,Turkey,95
+tm,Turkmenistan,11
+tc,Turks and Caicos Islands,40
+tv,Tuvalu,328
+ug,Uganda,170
+ua,Ukraine,79
+ae,United Arab Emirates,90
+uk,United Kingdom,257
+us,美国,34
+uy,Uruguay,19
+uz,Uzbekistan,66
+vu,Vanuatu,20
+ve,Venezuela, RB,33
+vn,Vietnam,280
+vi,Virgin Islands (U.S.),314
+ps,West Bank and Gaza,690
+eh,Western Sahara,2
+ye,Yemen, Rep.,46
+zm,Zambia,17
+zw,Zimbabwe,32

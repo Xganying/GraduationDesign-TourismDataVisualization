@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GMD - hight</title>
+      <style type="text/css">
+      	#container {
+      	    height: 720px; 
+      	    /*min-width: 310px; */
+      	    width:100%; 
+            border: none;
+      	    /*margin: 0 auto; */
+      	}
+      /*	.loading {
+      	    margin-top: 10em;
+      	    text-align: center;
+      	    color: gray;
+      	}*/
+      </style>
+  </head>
+
+	<script src="./js/highmaps.js"></script>
+	<script src="./js/data.js"></script>
+	<script src="./js/exporting.js"></script>
+	<script src="./js/offline-exporting.js"></script>
+	<script src="./js/world.js"></script>
+	<script src="./js/ajax.js"></script>
+
+<body>
+
+
+
+	<div id="container">
+	
+	</div>
+
+
+	<script type="text/javascript">
+    //调用ajax获取数据
+    var mapdata = [];
+    ajax({
+        method:'get', 
+        url:'./mapData.txt',
+        data:{},
+        success:function(text){
+           mapdata = text;
+        },
+        async:false  
+    });
+
+    // 格式化数据
+    var columns = mapdata.split('\n');
+    var data = [];
+    Highcharts.each(columns, function (code, i) {
+      var arr = code.split(',');
+      data.push({
+        code: arr[0].toUpperCase(),
+        value: arr[2],
+        name: arr[1]
+      });
+    });
+
+    //绘制可视化地图
+    Highcharts.mapChart('container',{
+      chart: {
+        map: 'custom/world',
+        borderWidth: 0.5 //边框线
+      },
+      // 对应的颜色（地图上）
+      colors: ['rgba(19,64,117,0.05)', 'rgba(19,64,117,0.2)', 'rgba(19,64,117,0.4)', 'rgba(19,64,117,0.5)', 'rgba(19,64,117,0.6)', 'rgba(19,64,117,0.8)', 'rgba(19,64,117,1)'],
+      // 地图标题
+      title: {
+        text: '世界各国来华旅游人数统计(数据来源：国家数据库)'
+      },
+      // 地图放大、缩小按钮（左上角）
+      mapNavigation: {
+        enabled: true
+      },
+
+      legend: {
+        title: { // 左下角标记颜色
+          text: '统计数据（万人次）',
+          style: {
+            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+          }
+        },
+        align: 'left',
+        verticalAlign: 'bottom',
+        floating: true,
+        layout: 'vertical',
+        valueDecimals: 0,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || 'rgba(255, 255, 255, 0.85)',
+        symbolRadius: 0,
+        symbolHeight: 14
+      },
+      colorAxis: {
+        dataClasses: [ // 间隔的数据
+          { to: 3 }, 
+          { from: 3,   to: 10   }, 
+          { from: 10,  to: 30   },
+          { from: 30,  to: 100  }, 
+          { from: 100, to: 300  }, 
+          { from: 300, to: 1000 }, 
+          { from: 1000 }
+        ]
+      },
+
+      series: [{ // 鼠标移动注释
+        data: data,
+        joinBy: ['iso-a2', 'code'],
+        animation: true,
+        name: '在华旅游人数统计',
+        states: {
+          hover: {
+            color: '#a4edba'
+          }
+        },
+        tooltip: {
+          valueSuffix: '（万人次）'
+        },
+        shadow: false
+      }]
+
+    });
+
+
+	</script>
+
+
+</body>
+</html>
