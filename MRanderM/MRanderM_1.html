@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="utf-8">
+       <title>MRanderM_1</title>
+    </head>
+
+    <style type="text/css">
+        #rander2{
+          width:100%;
+          height: 700px;
+          /*border: 1px dashed #ccc;*/
+        }
+   </style>
+
+   <script src="./js/echarts.js"></script>
+
+    <body>
+       <div id="rander2"></div>
+      
+       <script type="text/javascript">
+            var dom = document.getElementById("rander2");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                title: {
+                    text: '（2016年） 按性别、年龄和事由分外国入境人数统计分析',
+                    subtext: '来源：国家统计局',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    x: 'center',
+                    y:'bottom',
+                    // data:['按性别统计','按年龄统计', '按事由统计']
+                },
+                radar: [
+                    
+                    {
+                        indicator: [
+                            { text: '14岁以下', max: 3148.37},
+                            { text: '15-24岁', max: 3148.37},
+                            { text: '25-44岁', max: 3148.37},
+                            { text: '45-64岁', max: 3148.37},
+                            { text: '65岁以上', max: 3148.37},
+                        ],
+                        radius: 220,
+                        center: ['20%','55%'],
+                        
+                    },
+                    {
+                        indicator: [
+                            {text: '入境总数', max: 3148.37},
+                            {text: '男性', max: 3148.37},
+                            {text: '女性', max: 3148.37},
+                        ],
+                        center: ['50%','55%'],
+                        radius: 220
+                    },
+                    {
+                         indicator: [
+                            // { text: '入境总数', max: 3148.37},
+                            { text: '会议/商务', max: 3148.37},
+                            { text: '观光休闲', max: 3148.37},
+                            { text: '探亲访友', max: 3148.37},
+                            { text: '服务员工', max: 3148.37},
+                            { text: '其他', max: 3148.37}
+                        ],
+                        center: ['80%','55%'],
+                        radius: 220
+                    }
+                ],
+                series: [
+                    {  // 第一个
+                        type: 'radar',
+                        tooltip: {
+                            trigger: 'item'
+                        },
+                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                        
+                        data: [
+                            {
+                                value: [114.73, 303.32, 1473.56, 1078.39, 178.37],
+                                name: '按年龄统计'
+                            },
+                        ]
+                    },
+                    {  // 中间
+                        type: 'radar',
+                        tooltip: {
+                            trigger: 'item'
+                        },
+                        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                        radarIndex: 1,
+                        data: [
+                            {
+                                value: [3148.37, 1982.04, 1166.33],
+                                name: '按性别统计',
+                            },
+                        ]
+                    },
+                    { // 右边
+                        type: 'radar',
+                        tooltip: {
+                            trigger: 'item'
+                        },
+                        radarIndex: 2,
+                        itemStyle: {
+                            normal: {
+                                areaStyle: {
+                                    type: 'default'
+                                }
+                            }
+                        },
+                        data: [
+                            {
+                                name: '按事由统计',
+                                value: [579.74, 1051.15, 96.19, 471.75, 949.55],
+                            }
+                        ]
+                    }
+                ]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+   </body>
+</html>

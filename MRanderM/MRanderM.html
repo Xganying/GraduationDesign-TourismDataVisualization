@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="utf-8">
+       <title>MRanderM</title>
+    </head>
+    <style type="text/css">
+        #rander2{
+            position: absolute;
+            width:100%;
+            height: 700px;
+        }
+        .detail_0{
+            position: relative;
+            width: 400px;
+            height: 100%;
+            text-align: left;
+            top: 350px;
+            font-size: 17px;
+        }
+        a{
+            text-decoration: none;
+        }
+   </style>
+
+   <script src="./js/echarts.js"></script>
+
+    <body>
+       <div id="rander2"></div>
+       <div class="detail_0">
+            <p><a href="./MRanderM_1.html">最近1年数据分析（2016年）</a></p>
+            <p><a href="./MRanderM_2.html">最近几年数据分析（2008年 - 2016年）</a></p>
+        </div>
+      
+       <script type="text/javascript">
+            var dom = document.getElementById("rander2");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                title: {
+                    text: '按性别、年龄和事由分外国入境人数统计 (2008年-2016年总数,，单位： 万人次)',
+                    subtext: '来源：国家统计局',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                radar: [
+                    {
+                        indicator: [
+                            {text: '男性', max: 23681.35},
+                            {text: '女性', max: 23681.35},
+                            { text: '14岁以下', max: 23681.35},
+                            { text: '15-24岁', max: 23681.35},
+                            { text: '25-44岁', max: 23681.35},
+                            { text: '45-64岁', max: 23681.35},
+                            { text: '65岁以上', max: 23681.35},
+                            { text: '会议/商务', max: 23681.35},
+                            { text: '观光休闲', max: 23681.35},
+                            { text: '探亲访友', max: 23681.35},
+                            { text: '服务员工', max: 23681.35},
+                            { text: '其他', max: 23681.35},
+                        ],
+                        center: ['50%','55%'],
+                        radius: 280
+                    },
+                ],
+                series: [
+                    {  
+                        type: 'radar',
+                        tooltip: {
+                            trigger: 'item'
+                        },
+                        itemStyle: {
+                            normal: {
+                                areaStyle: {
+                                    type: 'default'
+                                }
+                            },
+                            emphasis: {
+                                lineStyle: {
+                                    width: 4
+                                }
+                            }
+                        },
+                        data: [
+                            {
+                                value: [15227.91, 8453.45, 951.71, 1929.21, 10839.24, 8554.13, 1407.03, 5248.19, 9621.47, 301.84, 2742.2, 5767.64],
+                                name: '按性别、年龄和事由分外国入境统计（万人次）',
+                              
+                            },
+
+                        ]
+                    }
+                ]
+            };
+            ;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+   </body>
+</html>

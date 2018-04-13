@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8">
+   </head>
+
+   <style type="text/css">
+     #container0{
+      width: 800px;
+      height: 600px;
+      border: 1px solid blue;
+     }
+   </style>
+
+   <script src="./js/echarts.js"></script>
+
+
+   <body>
+       
+       <div id="container0"></div>
+       
+
+       <script type="text/javascript">
+          var dom = document.getElementById("container0");
+          var myChart = echarts.init(dom);
+          var app = {};
+          option = null;
+          app.title = 'PCSSH';
+
+          option = {
+              angleAxis: {
+                  type: 'category',
+                  data:  ["2016年", "2015年", "2014年","2013年", "2012年", "2011年", "2010年", "2009年", "2008年", "2007年"],
+                  //data: [1200, 1136.5, 569.13, 516.64, 500.28, 484.64, 458.14, 396.75, 408.43, 419.19],
+                  z: 10
+              },
+              radiusAxis: {
+                  type: 'category',
+                  data:  [0,10,20,30,40,50,60,70,80,90,100,120],
+                  z: 10
+              },
+              polar: {
+
+
+              },
+              series: [
+                {
+                    type: 'bar',
+                    data: [67.1, 44.8, 32.54, 30.92, 25.55, 25.32, 21.07, 20.8, 22.02, 18],
+                    coordinateSystem: 'polar',
+                    name: '游览',
+                    stack: 'a'
+                }, 
+                {
+                    type: 'bar',
+                    data: [116.3, 132.9, 69.5, 59.76, 52.11, 50.98, 51.95, 44.34, 48.6, 48.6, 59.38],
+                    coordinateSystem: 'polar',
+                    name: '住宿',
+                    stack: 'a'
+                }, 
+                {
+                    type: 'bar',
+                    data: [96.2, 82.6, 48.28, 41.28, 37.47, 35.98, 41.15, 36.14, 38.73, 37.48],
+                    coordinateSystem: 'polar',
+                    name: '餐饮',
+                    stack: 'a'
+                },
+                {
+                    type: 'bar',
+                    data: [209, 209.5, 113.28, 111.82, 111.54, 118.56, 115.9, 91.49, 85.34, 104.94],
+                    coordinateSystem: 'polar',
+                    name: '商品销售',
+                    stack: 'a'
+                },
+                {
+                    type: 'bar',
+                    data: [77.1, 53.9, 36.74, 35.91, 36.13, 34.66, 31.72, 28.82, 29.7, 21.1],
+                    coordinateSystem: 'polar',
+                    name: '娱乐',
+                    stack: 'a'
+                },
+                {
+                    type: 'bar',
+                    data: [28.9, 23.9, 11.04, 7.92, 7.91, 10.26, 10.68, 9.55, 10.02, 7.61],
+                    coordinateSystem: 'polar',
+                    name: '邮电通讯',
+                    stack: 'a'
+                },
+                {
+                    type: 'bar',
+                    data: [118, 118.6, 45.77, 40.01, 40.68, 41.41, 40.15, 34.91, 35.6, 46.83],
+                    coordinateSystem: 'polar',
+                    name: '其他服务',
+                    stack: 'a'
+                }
+
+              ],
+              legend: {
+                  // show: true,
+                  data: ['游览', '住宿', '餐饮', '商品销售', '娱乐', '邮电通讯', '其他服务']
+              }
+          };
+          ;
+          if (option && typeof option === "object") {
+              myChart.setOption(option, true);
+          }
+       </script>
+   </body>
+</html>

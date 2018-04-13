@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NR2</title>
+</head>
+
+	<script src="./js/highcharts.js"></script>
+
+	<style type="text/css">
+		#NR2 {
+			width:100%;
+			margin: auto;
+			height: 710px;
+			margin: 0 auto;
+			/*border: 1px solid red;*/
+		}
+	</style>
+
+<body>
+
+	<div id="NR2"></div>
+
+
+	<script type="text/javascript">
+		
+
+		var colors = Highcharts.getOptions().colors,
+	    categories = [
+	        "长途交通", "民航", "铁路", "汽车","轮船", "市内交通"
+	    ],
+	    data = [
+	        {
+	            "y": 2074.09, // 占据的百分比
+	            "color": colors[2],
+	            "drilldown": {
+	                "name": "长途交通",
+	                "categories": [
+	                    "2016年", "2015年", "2014年","2013年", "2012年", "2011年", "2010年", "2009年", "2008年", "2007年"
+	                ],
+	                "data": [
+	                    446.5, 448.5, 195.95, 174.57, 172.78,151.17,130.91,117.41,124.87,111.43
+	                ]
+	            }
+	        },
+	        {
+	            "y":1473.93,
+	            "color": colors[1],
+	            "drilldown": {
+	                "name": "民航",
+	                "categories": [
+	                   "2016年", "2015年", "2014年","2013年", "2012年", "2011年", "2010年", "2009年", "2008年", "2007年"
+	                ],
+	                "data": [
+	                    290.6, 294.8, 145.79, 134.1, 131.64, 114.7, 98.08, 85.84, 90.47,87.91
+	                ]
+	            }
+	        },
+	        {
+	            "y":210.23,
+	            "color": colors[0],
+	            "drilldown": {
+	                "name": "铁路",
+	                "categories": [
+	                    "2016年", "2015年", "2014年","2013年", "2012年", "2011年", "2010年", "2009年", "2008年", "2007年"
+	                ],
+	                "data": [
+	                   53.2,43.2,20.9,16,16.46,14.06,12.47,12.77,13.46,7.71
+	                ]
+	            }
+	        },
+	        {
+	            "y": 160.83,
+	            "color": colors[3],
+	            "drilldown": {
+	                "name": "汽车",
+	                "categories": [
+	                    "2016年", "2015年", "2014年","2013年", "2012年", "2011年", "2010年", "2009年", "2008年", "2007年"
+	                ],
+	                "data": [
+	                   31.6, 32.5, 15.68, 13.65, 15.54, 14.06, 10.81, 9.58, 10.47, 6.94
+	                ]
+	            }
+	        },
+	        {
+	            "y": 229.02,
+	            "color": colors[5],
+	            "drilldown": {
+	                "name": "轮船",
+	                "categories": [
+	                    "2016年", "2015年", "2014年","2013年", "2012年", "2011年", "2010年", "2009年", "2008年", "2007年"
+	                ],
+	                "data": [
+	                   71, 78, 13.59, 10.82, 9.14, 8.35, 9.56, 9.22, 10.47, 8.87
+	                ]
+	            }
+	        },
+	        {
+	            "y": 179.43,
+	            "color": colors[4],
+	            "drilldown": {
+	                "name": "市内交通",
+	                "categories": [
+	                    "2016年", "2015年", "2014年","2013年", "2012年", "2011年", "2010年", "2009年", "2008年", "2007年"
+	                ],
+	                "data": [
+	                    40.4, 22.4, 16.04, 14.44, 16.1, 16.19, 14.6, 13.29, 13.55, 12.42
+	                ]
+	            }
+	        }
+	    ],
+	    trafficType = [],
+	    everyYearIncome = [],
+	    i,
+	    j,
+	    dataLen = data.length,
+	    drillDataLen,
+	    brightness;
+
+		for (i = 0; i < dataLen; i += 1) {
+		    trafficType.push({
+		        name: categories[i],
+		        y: data[i].y,
+		        color: data[i].color
+		    });
+
+		    drillDataLen = data[i].drilldown.data.length;
+		    for (j = 0; j < drillDataLen; j += 1) {
+		        brightness = 0.2 - (j / drillDataLen) / 5;
+		        everyYearIncome.push({
+		            name: data[i].drilldown.categories[j],
+		            y: data[i].drilldown.data[j],
+		            color: Highcharts.Color(data[i].color).brighten(brightness).get()
+		        });
+		   	}
+		}
+
+		Highcharts.chart('NR2', {
+		    chart: {
+		        type: 'pie'
+		    },
+		    title: {
+		        text: '国际旅游外汇收入统计 ( 2007-2016年 )'
+		    },
+		    subtitle: {
+		        text: '来源：国家数据库'
+		    },
+		    plotOptions: {
+		        pie: {
+		            center: ['50%', '50%'] // 圆心的位置
+		        }
+		    },
+		    tooltip: {
+		        valueSuffix: '亿美元' // 提示框内容
+		    },
+		    series: [{
+		        name: '国际收入总额： ', // 内圆提示框
+		        data: trafficType,
+		        size: '50%', // 内圆提示文字位置
+		        dataLabels: {
+		            formatter: function () {
+		                return this.y > 6 ? this.point.name : null;
+		            },
+		            color: '#ffffff',
+		            distance: -30
+		        }
+		    }, {
+		        name: '年度总收入：', // 外圆提示框
+		        data: everyYearIncome,
+		        size: '85%',
+		        innerSize: '60%',
+		        dataLabels: {
+		            formatter: function () {
+		                // display only if larger than 1
+		                return this.y > 1 ? '<b>' + this.point.name + ':</b> ' +
+		                    this.y + '亿美元' : null;
+		            }
+		        },
+		    }]
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8">
+       <title>MRanderM</title>
+        <style type="text/css">
+            #rander2{
+              position: absolute;
+              width:100%;
+              height: 705px;
+              /*border: 1px dashed #ccc;*/
+            }
+
+            #rander3{
+              position: absolute;
+              /*top:-710px;*/
+              width:100%;
+              height: 705px;
+              /*border: 1px dashed #ccc;*/
+            }
+
+   </style>
+   </head>
+     <script src="./js/echarts.js"></script>
+
+   <body>
+      
+       <div id="rander2"></div>
+       <div id="rander3"></div>
+
+    
+       <script type="text/javascript">
+            var dom = document.getElementById("rander2");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                title: {
+                    text: '(2008年-2016年) 按年龄、事由分外国入境人数统计对比 ',
+                    subtext: '来源：国家统计局',
+                    x: 'center'
+                },
+                legend: {
+                    y:'bottom',
+                    data: ['2008年','2009年','2010年','2011年','2012年', '2013年', '2014年', '2015年', '2016年']
+                },
+                radar: [
+                    {
+                         indicator: [
+                            { text: '14岁以下'},
+                            { text: '15-24岁'},
+                            { text: '25-44岁'},
+                            { text: '45-64岁'},
+                            { text: '65岁以上'},
+                            
+                        ],           
+                        center: ['25%', '50%'],
+                        radius: 250,
+                        startAngle: 90,
+                        splitNumber: 4,
+                        shape: 'circle',
+                        name: {
+                            formatter:'【{value}】', // 外圈文字显示
+                            textStyle: {
+                                color:'#72ACD1'
+                            }
+                        },
+                        splitArea: {
+                            areaStyle: {
+                                color: ['rgba(114, 172, 209, 0.2)','rgba(114, 172, 209, 0.3)', 'rgba(114, 172, 209, 0.2)','rgba(114, 172, 209, 0.3)', 'rgba(114, 172, 209, 2)','rgba(114, 172, 209, 0.3)'], // 每一圈的颜色
+                                shadowColor: 'rgba(0, 0, 0, 0.1)', // 阴影颜色
+                                shadowBlur: 10
+                            }
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.5)' // 里面5根角射线的颜色
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.5)' // 里面5个圆圈的颜色
+                            }
+                        }
+                    },
+                ],
+                series: [
+                    {
+                        type: 'radar',
+                        itemStyle: {
+                            emphasis: {
+                                lineStyle: {
+                                    width: 4
+                                }
+                            }
+                        },
+                        data: [
+                            {
+                                value: [98.52,206.13,1129.1,871.7,127.09],
+                                name: '2008年',
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        color:'rgb(129,5,223)',
+                                        formatter:function(params) {
+                                            return params.value;
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                value: [92.05,171.9,1004.28,796.56,128.95],
+                                name: '2009年',
+                            },
+                            {
+                                value: [109.44,203.09,1171.31,965.2,163.65],
+                                name: '2010年',
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                },
+                            },
+                            {
+                                value: [111.94,212.44,1227.62,992.28,166.92],
+                                name: '2011年',
+                            },
+                            {
+                                value: [111.79,215.87,1229.72,988.7,173.07],
+                                name: '2012年',
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                },
+                                
+                            },
+                            {
+                                value: [107.89,206.65,1209.16,950.54,154.78],
+                                name: '2013年',
+                            },
+                            {
+                                value: [103.92,204.78,1210.24,961,156.13],
+                                name: '2014年',
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                }
+                            },
+                            {
+                                value: [101.43,205.03,1184.25,949.76,158.07],
+                                name: '2015年',  
+                            },
+                            {
+                                value: [114.73,303.32,1473.56,1078.39,178.37],
+                                name: '2016年',
+                                symbol: 'rect',
+                                symbolSize: 5,
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        color:'red',
+                                        formatter:function(params) {
+                                            return params.value;
+                                        }
+                                    }
+                                }
+                            },
+                            
+                        ]
+                    }
+                ]
+            };
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+
+        <script type="text/javascript">
+            var dom = document.getElementById("rander3");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                radar: [
+                    {
+                        indicator: [
+                            { text: '会议/商务'},
+                            { text: '其他'},
+                            { text: '观光休闲'},
+                            { text: '探亲访友'},
+                            { text: '服务员工'},
+                            
+                        ],           
+                        center: ['75%', '50%'],
+                        radius: 250,
+                        startAngle: 90,
+                        splitNumber: 4,
+                        shape: 'circle',
+                        name: {
+                            formatter:'【{value}】', // 外圈文字显示
+                            textStyle: {
+                                color:'#72ACD1'
+                            }
+                        },
+                        splitArea: {
+                            areaStyle: {
+                                color: ['rgba(114, 172, 209, 0.2)','rgba(114, 172, 209, 0.3)', 'rgba(114, 172, 209, 0.2)','rgba(114, 172, 209, 0.3)', 'rgba(114, 172, 209, 2)','rgba(114, 172, 209, 0.3)'], // 每一圈的颜色
+                                shadowColor: 'rgba(0, 0, 0, 0.1)', // 阴影颜色
+                                shadowBlur: 10
+                            }
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.5)' // 里面5根角射线的颜色
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.5)' // 里面5个圆圈的颜色
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        type: 'radar',
+                        itemStyle: {
+                            emphasis: {
+                                lineStyle: {
+                                    width: 4
+                                }
+                            }
+                        },
+                        data: [
+                            {
+                                value: [567.77, 1203.96, 6.79, 243.19, 410.82],
+                                name: '2008年',
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        color:'rgb(51,75,92)',
+                                        formatter:function(params) {
+                                            return params.value;
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                value: [523.72, 1013.27, 8.01, 227.37, 421.38],
+                                name: '2009年',
+                            },
+                            {
+                                value: [619.67, 1238.2, 9.1, 246.27, 499.44],
+                                name: '2010年',
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                },
+                            },
+                            {
+                                value: [632.64, 1221.82, 10.99, 269.39, 576.35],
+                                name: '2011年',
+                            },
+                            {
+                                value: [628.02, 1162.9, 10.77, 286.47, 630.99],
+                                name: '2012年',
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                },
+                                
+                            },
+                            {
+                                value: [619.4, 1012.3, 19.91, 319.53, 657.89],
+                                name: '2013年',
+                            },
+                            {
+                                value: [539.57, 892.99, 60.33, 328.54, 814.66],
+                                name: '2014年',
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                }
+                            },
+                            {
+                                value: [537.66, 824.88, 79.75, 349.69, 806.56],
+                                name: '2015年',  
+                            },
+                            {
+                                value: [579.74, 1051.15, 96.19, 471.75, 949.55],
+                                name: '2016年',
+                                symbol: 'rect',
+                                symbolSize: 5,
+                                lineStyle: {
+                                    normal: {
+                                        type: 'dashed'
+                                    }
+                                },
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        color:'red',
+                                        formatter:function(params) {
+                                            return params.value;
+                                        }
+                                    }
+                                }
+                            },
+                            
+                        ]
+                    }
+                ]
+            };
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+       </script>
+   </body>
+</html>
