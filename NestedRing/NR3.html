@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>NR3</title>
+</head>
+
+<style type="text/css">
+	#NR3{
+		min-width: 310px;
+		max-width: 650px;
+		margin: 0 auto
+	}
+</style>
+
+<script src="./js/highcharts.js"></script>
+<script src="./js/sunburst.js"></script>
+
+<body>
+	<div id="NR3"></div>
+
+
+    <script src="./data.js"></script>
+
+	<script type="text/javascript">
+		
+        // data
+
+        Highcharts.getOptions().colors.splice(0, 0, 'transparent');
+
+        Highcharts.chart('NR3', {
+            chart: {
+                height: '100%'
+            },
+            title: {
+                text: '各国入境旅游人数统计'
+            },
+            subtitle: {
+                text: '数据来源：国家数据'
+            },
+            series: [{
+                type: "sunburst",
+                data: data,
+                allowDrillToNode: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    format: '{point.name}', // 
+                    filter: {
+                        property: 'innerArcLength',
+                        operator: '>',
+                        value: 16
+                    }
+                },
+                levels: [
+                    {
+                        level: 1,
+                        levelIsConstant: false,
+                        dataLabels: {
+                            rotationMode: 'parallel',
+                            filter: {
+                                property: 'outerArcLength',
+                                operator: '>',
+                                value: 64
+                            }
+                        }
+                    }, {
+                        level: 2,
+                        colorByPoint: true,
+                        dataLabels: {
+                            rotationMode: 'parallel'
+                        }
+                    },
+                    {
+                        level: 3,
+                        colorVariation: {
+                            key: 'brightness',
+                            to: -0.5
+                        }
+                    }, {
+                        level: 4,
+                        colorVariation: {
+                            key: 'brightness',
+                            to: 0.5
+                        }
+                    }
+                ]
+
+            }],
+            tooltip: {
+                headerFormat: "2008年-2016年 ",
+                pointFormat: '<b>{point.name}</b> 来华旅游人数: <b>{point.value} ( 万人次 )</b>'
+            }
+        });
+	</script>
+</body>
+</html>
