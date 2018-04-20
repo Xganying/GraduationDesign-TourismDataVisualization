@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GMD - hight</title>
+    <title>GMD2</title>
+
       <style type="text/css">
       	#container {
       	    height: 720px; 
@@ -16,30 +17,29 @@
       	    color: gray;
       	}*/
       </style>
-  </head>
 
-	<script src="./js/highmaps.js"></script>
-	<script src="./js/data.js"></script>
-	<script src="./js/exporting.js"></script>
-	<script src="./js/offline-exporting.js"></script>
-	<script src="./js/world.js"></script>
-	<script src="./js/ajax.js"></script>
+  </head>
 
 <body>
 
 
 
-	<div id="container">
-	
-	</div>
+	<div id="container"></div>
 
+
+
+
+  <script src="./js/highmaps.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/world.js"></script>
+  <script src="./js/ajax.js"></script>
 
 	<script type="text/javascript">
     //调用ajax获取数据
     var mapdata = [];
     ajax({
         method:'get', 
-        url:'./mapData.txt',
+        url:'./data/GMD2_Data.txt',
         data:{},
         success:function(text){
            mapdata = text;
