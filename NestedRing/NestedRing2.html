@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>NR2</title>
+	<title>NestedRing2</title>
 </head>
 
 	<style type="text/css">
 		#NR2 {
-			width:100%;
-			margin: auto;
-			height: 710px;
-			margin: 0 auto;
-			/*border: 1px solid red;*/
+			width:80%;
+			/*margin: auto;*/
+			height: 700px;
+			/*margin: 0 auto;*/
+			border: 1px dashed #ccc;
 		}
 	</style>
 
@@ -19,15 +19,12 @@
 	<div id="NR2"></div>
 
 
-	<script src="./js/highcharts.js"></script>
+	<script src="./js/NestedRing2.js"></script>
 	
 	<script type="text/javascript">
 		
-
 		var colors = Highcharts.getOptions().colors,
-	    categories = [
-	        "长途交通", "民航", "铁路", "汽车","轮船", "市内交通"
-	    ],
+	    categories = [ "长途交通", "民航", "铁路", "汽车","轮船", "市内交通" ],
 	    data = [
 	        {
 	            "y": 2074.09, // 占据的百分比
@@ -127,7 +124,7 @@
 		        type: 'pie'
 		    },
 		    title: {
-		        text: '国际旅游外汇收入统计 ( 2007-2016年 )'
+		        text: ' 国际旅游外汇收入统计 ( 2007年-2016年 ) '
 		    },
 		    subtitle: {
 		        text: '来源：国家数据库'
@@ -159,7 +156,7 @@
 		        dataLabels: {
 		            formatter: function () {
 		                // display only if larger than 1
-		                return this.y > 1 ? '<b>' + this.point.name + ':</b> ' +
+		                return this.y > 40 ? '<b>' + this.point.name + ':</b> ' +
 		                    this.y + '亿美元' : null;
 		            }
 		        },

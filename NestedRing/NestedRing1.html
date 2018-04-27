@@ -2,46 +2,55 @@
 <html style="height: 100%">
    <head>
        <meta charset="utf-8">
-       <title>NR1</title>
+       <title>NestedRing1</title>
    </head>
 
    <style type="text/css">
 
-   #NR{
-        width:100%;
+   #NR1{
+        width:75%;
         height: 700px;
-        margin: 10px;
+        margin: 5px;
+        /*border: 1px dashed #ccc;*/
+   }
+   button{
+    width: 
    }
 
    </style>
 
-   <script src="./js/echarts.js"></script>
-
    <body>
 
-       <div id="NR"></div>
+       <div id="NR1"></div>
+
+
+       <script src="./js/NestedRing1.js"></script>
        
        <script type="text/javascript">
-        var dom = document.getElementById("NR");
+        var dom = document.getElementById("NR1");
         var myChart = echarts.init(dom);
         var app = {};
         option = null;
         app.title = '多环';
 
         option = {
+            // 标题
             title:{
-                text:'(2008-2017年) 旅游业国内游客、国内旅游总花费、国内居民出境、外国人入境数据分析',
+                text:'(2008年-2017年) 旅游业国内游客、国内旅游总花费、国内居民出境、外国人入境数据分析',
                 x:'center',
             },
+            // 鼠标悬浮显示的内容
             tooltip: {
                 trigger: 'item',
                 formatter: "{a} <br/>{b}: {c} ({d}%)"
             },
+            // 小图标显示的内容
             legend: {
-                orient: 'vertical',
-                x: 'left',
-                y:'middle',
+                orient: 'horizontal', //  vertical
+                x: 'center',
+                y:'bottom',
             },
+            // 嵌套的各环
             series: [
                 // 第1环
                 {
@@ -57,7 +66,7 @@
                             borderWidth: 1,
                             borderRadius: 4,
                             rich: {
-                                a: {
+                                a:{
                                     color: '#999',
                                     lineHeight: 22,
                                     align: 'center'
@@ -232,10 +241,10 @@
                                 }
                             }
                         },
-                        emphasis: {
+                        emphasis: { // 鼠标移动，显示增强
                             show: true,
                             textStyle: {
-                                fontSize: '30',
+                                fontSize: '26',
                                 fontWeight: 'bold'
                             }
                         }
